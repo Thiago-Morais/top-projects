@@ -1,4 +1,4 @@
 [submodule "the-odin-project-rock-paper-scissors"]
 	path = the-odin-project-rock-paper-scissors
-	url = https://github.com/Thiago-Morais/the-odin-project-rock-paper-scissors
+	url = git@github.com:Thiago-Morais/the-odin-project-rock-paper-scissors.git
 	branch = main
