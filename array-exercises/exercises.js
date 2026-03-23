@@ -1,3 +1,4 @@
+// ====> Exercise 1 <====
 function exercise1() {
   console.log(camelize("background-color") == "backgroundColor");
   console.log(camelize("list-style-image") == "listStyleImage");
@@ -21,4 +22,19 @@ function camelize(text) {
   });
   const result = String.prototype.concat(...camelized);
   return result;
+}
+
+// ====> Exercise 2 <====
+function exercise2() {
+  let arr = [5, 3, 8, 1];
+
+  let filtered = filterRange(arr, 1, 4);
+
+  console.log(`filtered = ${filtered} === 3,1`); // 3,1 (matching values)
+  console.log(`arr = ${arr} === 5,3,8,1`); // 5,3,8,1 (not modified)
+}
+
+function filterRange(arr, a, b) {
+  // We might have to use a filter to clamp the values between a and b (inclusive)
+  return arr.filter((item) => a <= item && item <= b);
 }
