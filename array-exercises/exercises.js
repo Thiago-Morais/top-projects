@@ -60,4 +60,16 @@ function filterRangeInPlace(arr, a, b) {
   }
 }
 
-exercise3();
+// ====> Exercise 4 <====
+function exercise4() {
+  let arr = [5, 2, 1, -10, 8];
+  const initial = arr;
+  const result = arr.sort().reverse();
+
+  console.log(
+    `from: '${initial}' >> to: '${[8, 5, 2, 1, -10]}' >> result: '${result}'`,
+  );
+  // 8, 5, 2, 1, -10
+}
+
+exercise4();
