@@ -1,8 +1,14 @@
 // ====> Exercise 1 <====
 function exercise1() {
-  console.log(camelize("background-color") == "backgroundColor");
-  console.log(camelize("list-style-image") == "listStyleImage");
-  console.log(camelize("-webkit-transition") == "WebkitTransition");
+  console.log(
+    `"background-color" >> "backgroundColor" >> ${camelize("background-color") == "backgroundColor"}`,
+  );
+  console.log(
+    `"list-style-image" >> "listStyleImage" >> ${camelize("list-style-image") == "listStyleImage"}`,
+  );
+  console.log(
+    `"-webkit-transition" >> "WebkitTransition" >> ${camelize("-webkit-transition") == "WebkitTransition"}`,
+  );
 }
 
 function camelize(text) {
