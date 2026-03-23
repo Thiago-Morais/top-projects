@@ -89,3 +89,27 @@ function copySorted(arr) {
   copy.sort();
   return copy;
 }
+
+// ====> Exercise 6 <====
+function exercise6() {
+  let arr = [1, 2, 3];
+  console.log(`initial = '${arr}'`);
+
+  for (let i = 0; i < 5; i++) {
+    shuffle(arr);
+    console.log(`after shuffle: '${arr}'`);
+  }
+}
+
+function shuffle(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    const randomIndex = randomUpTo(arr.length - 1);
+    const temp = arr[i];
+    arr[i] = arr[randomIndex];
+    arr[randomIndex] = temp;
+  }
+
+  function randomUpTo(maxRandom) {
+    return Math.floor(Math.random() * (maxRandom + 1));
+  }
+}
