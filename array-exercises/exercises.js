@@ -63,7 +63,7 @@ function filterRangeInPlace(arr, a, b) {
 // ====> Exercise 4 <====
 function exercise4() {
   let arr = [5, 2, 1, -10, 8];
-  const initial = arr;
+  const initial = arr.slice();
   const result = arr.sort().reverse();
 
   console.log(
@@ -72,4 +72,20 @@ function exercise4() {
   // 8, 5, 2, 1, -10
 }
 
-exercise4();
+// ====> Exercise 5 <====
+function exercise5() {
+  let arr = ["HTML", "JavaScript", "CSS"];
+  const initial = arr.slice();
+
+  let sorted = copySorted(arr);
+  console.log(
+    `from: '${initial}' >> to: '${["CSS", "HTML", "JavaScript"]}' >> result: ${sorted}`,
+  );
+  console.log(`from: '${initial}' >> to: '${initial}' >> result: ${arr}`);
+}
+
+function copySorted(arr) {
+  const copy = arr.slice();
+  copy.sort();
+  return copy;
+}
