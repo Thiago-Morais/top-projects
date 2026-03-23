@@ -43,3 +43,21 @@ function filterRange(arr, a, b) {
   // We might have to use a filter to clamp the values between a and b (inclusive)
   return arr.filter((item) => a <= item && item <= b);
 }
+
+// ====> Exercise 3 <====
+function exercise3() {
+  let arr = [5, 3, 8, 1];
+  let initial = arr.slice();
+  filterRangeInPlace(arr, 1, 4);
+  console.log(`from: '${initial}' >> to: '${[3, 1]}' >> result: ${arr}`);
+}
+
+function filterRangeInPlace(arr, a, b) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] <= a || b <= arr[i]) {
+      arr.splice(i, 1);
+    }
+  }
+}
+
+exercise3();
