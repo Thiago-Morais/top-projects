@@ -113,3 +113,30 @@ function shuffle(arr) {
     return Math.floor(Math.random() * (maxRandom + 1));
   }
 }
+
+// ====> Exercise 7 <====
+function exercise7() {
+  let strings = [
+    "Hare",
+    "Krishna",
+    "Hare",
+    "Krishna",
+    "Krishna",
+    "Krishna",
+    "Hare",
+    "Hare",
+    ":-O",
+  ];
+  const result = unique(strings); // Hare, Krishna, :-O
+  console.log(`to: '${["Hare", "Krishna", ":-O"]}'; result: '${result}'`);
+}
+
+function unique(arr) {
+  const result = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (!result.includes(arr[i])) {
+      result.push(arr[i]);
+    }
+  }
+  return result;
+}
