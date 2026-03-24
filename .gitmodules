@@ -1,10 +1,10 @@
 [submodule "the-odin-project-rock-paper-scissors"]
-	path = rock-paper-scissors
+	path = projects/rock-paper-scissors
 	url = git@github.com:Thiago-Morais/the-odin-project-rock-paper-scissors.git
 	branch = main
 [submodule "the-odin-project-flexbox-project"]
-	path = flexbox-project
+	path = projects/flexbox-project
 	url = git@github.com:Thiago-Morais/the-odin-project-flexbox-project.git
 [submodule "javascript-exercises"]
-	path = javascript-exercises
+	path = others/javascript-exercises
 	url = git@github.com:Thiago-Morais/javascript-exercises.git
