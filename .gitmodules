@@ -6,5 +6,5 @@
 	path = projects/flexbox-project
 	url = git@github.com:Thiago-Morais/the-odin-project-flexbox-project.git
 [submodule "javascript-exercises"]
-	path = others/javascript-exercises
+	path = exercises/javascript-exercises
 	url = git@github.com:Thiago-Morais/javascript-exercises.git
