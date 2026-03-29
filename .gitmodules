@@ -8,3 +8,6 @@
 [submodule "javascript-exercises"]
 	path = exercises/javascript-exercises
 	url = git@github.com:Thiago-Morais/javascript-exercises.git
+[submodule "projects/etch-a-sketch"]
+	path = projects/etch-a-sketch
+	url = git@github.com:Thiago-Morais/etch-a-sketch.git
