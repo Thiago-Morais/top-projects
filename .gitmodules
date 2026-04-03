@@ -10,4 +10,7 @@
 	url = git@github.com:Thiago-Morais/javascript-exercises.git
 [submodule "projects/etch-a-sketch"]
 	path = projects/etch-a-sketch
-	url = git@github.com:Thiago-Morais/etch-a-sketch.git
+	url = git@github.com:Thiago-Morais/the-odin-project-etch-a-sketch.git
+[submodule "projects/calculator"]
+	path = projects/calculator
+	url = git@github.com:Thiago-Morais/the-odin-project-calculator.git
