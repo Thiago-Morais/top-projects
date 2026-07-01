@@ -1,0 +1,14 @@
+body {
+    font: 1.2em / 1.5 sans-serif;
+}
+
+/* Add styles here */
+
+h2 + * {
+    color: red;
+}
+
+ul.list > li {
+    list-style: none;
+    border-bottom: solid gray 1px;
+}
