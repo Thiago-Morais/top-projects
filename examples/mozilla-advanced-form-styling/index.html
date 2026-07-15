@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title></title>
+        <link href="style.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="hard-to-style">
+            <h2>Hard to style elements</h2>
+            <form>
+                <p>
+                    <label for="search">search: </label>
+                    <input id="search" name="search" type="search" />
+                </p>
+                <p>
+                    <label for="text">text: </label>
+                    <input id="text" name="text" type="text" />
+                </p>
+                <p>
+                    <label for="date">date: </label>
+                    <input id="date" name="date" type="datetime-local" />
+                </p>
+                <p>
+                    <label for="radio">radio: </label>
+                    <input id="radio" name="radio" type="radio" />
+                </p>
+                <p>
+                    <label for="checkbox">checkbox: </label>
+                    <input id="checkbox" name="checkbox" type="checkbox" />
+                </p>
+                <p><input type="submit" value="submit" /></p>
+                <p><input type="button" value="button" /></p>
+            </form>
+        </div>
+
+        <div class="checkbox-styling">
+            <h2>Checkbox and radio buttons</h2>
+            <form>
+                <fieldset>
+                    <legend>Fruit preferences</legend>
+
+                    <p>
+                        <label>
+                            <input type="checkbox" name="fruit" value="cherry" />
+                            I like cherry
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input type="checkbox" name="fruit" value="banana" disabled />
+                            I can't like banana
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input type="checkbox" name="fruit" value="strawberry" />
+                            I like strawberry
+                        </label>
+                    </p>
+                </fieldset>
+            </form>
+        </div>
+
+        <div class="slightly-more-consistent-styling">
+            <h2>Simple consistent styling</h2>
+            <form>
+                <div>
+                    <label for="select">Select box:</label>
+                    <div class="select-wrapper">
+                        <select id="select" name="select">
+                            <option>Banana</option>
+                            <option>Cherry</option>
+                            <option>Lemon</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label for="myFruit">"Favorite fruit?" datalist:</label>
+                    <input type="text" name="myFruit" id="myFruit" list="mySuggestion" />
+                    <datalist id="mySuggestion">
+                        <option>Apple</option>
+                        <option>Banana</option>
+                        <option>Blackberry</option>
+                        <option>Blueberry</option>
+                        <option>Lemon</option>
+                        <option>Lychee</option>
+                        <option>Peach</option>
+                        <option>Pear</option>
+                    </datalist>
+                </div>
+                <div>
+                    <label for="date1">Datetime local: </label>
+                    <input id="date1" name="date1" type="datetime-local" />
+                </div>
+                <div>
+                    <label for="range">Range: </label>
+                    <input id="range" name="range" type="range" />
+                </div>
+                <div>
+                    <label for="color">Color: </label>
+                    <input id="color" name="color" type="color" />
+                </div>
+                <div>
+                    <label for="file">File picker: </label>
+                    <input id="file" name="file" type="file" multiple />
+                    <ul id="file-list"></ul>
+                </div>
+                <div>
+                    <label for="progress">Progress: </label>
+                    <progress max="100" value="75" id="progress">75/100</progress>
+                </div>
+                <div>
+                    <label for="meter">Meter: </label>
+                    <meter id="meter" min="0" max="100" value="75" low="33" high="66" optimum="50">75</meter>
+                </div>
+                <div><button>Submit?</button></div>
+            </form>
+            <script>
+                {
+                    const fileInput = document.querySelector("#file");
+                    const fileList = document.querySelector("#file-list");
+
+                    fileInput.addEventListener("change", updateFileList);
+
+                    function updateFileList() {
+                        while (fileList.firstChild) {
+                            fileList.removeChild(fileList.firstChild);
+                        }
+
+                        const curFiles = fileInput.files;
+
+                        if (!(curFiles.length === 0)) {
+                            for (const file of curFiles) {
+                                const listItem = document.createElement("li");
+                                listItem.textContent = `File name: ${file.name}; file size: ${returnFileSize(file.size)}.`;
+                                fileList.appendChild(listItem);
+                            }
+                        }
+                    }
+
+                    function returnFileSize(number) {
+                        if (number < 1e3) {
+                            return `${number} bytes`;
+                        } else if (number >= 1e3 && number < 1e6) {
+                            return `${(number / 1e3).toFixed(1)} KB`;
+                        }
+                        return `${(number / 1e6).toFixed(1)} MB`;
+                    }
+                }
+            </script>
+        </div>
+
+        <div class="styling-lists">
+            <h2>Styling <code>select</code></h2>
+            <label for="select">Select a fruit</label>
+            <div class="select-wrapper">
+                <select id="select" name="select">
+                    <option>Banana</option>
+                    <option>Cherry</option>
+                    <option>Lemon</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="styling-range">
+            <h2>Styling <code>&ltinput type="range"&gt</code></h2>
+            <div>
+                <label for="range-2">Range: </label>
+                <input id="range-2" name="range-2" type="range" />
+            </div>
+        </div>
+
+        <div class="styling-color">
+            <h2>Styling <code>&ltinput type="color"&gt</code></h2>
+            <div>
+                <label for="color-2">Color: </label>
+                <input id="color-2" name="color-2" type="color" />
+            </div>
+        </div>
+
+        <div class="styling-file">
+            <h2>Styling <code>&ltinput type="file"&gt</code></h2>
+            <div>
+                <label for="file-2">File picker: </label>
+                <input id="file-2" name="file-2" type="file" multiple />
+                <ul id="file-list-2"></ul>
+            </div>
+            <script>
+                {
+                    const fileInput = document.querySelector("#file-2");
+                    const fileList = document.querySelector("#file-list-2");
+
+                    fileInput.addEventListener("change", updateFileList);
+
+                    function updateFileList() {
+                        while (fileList.firstChild) {
+                            fileList.removeChild(fileList.firstChild);
+                        }
+
+                        let curFiles = fileInput.files;
+
+                        if (!(curFiles.length === 0)) {
+                            for (const file of curFiles) {
+                                const listItem = document.createElement("li");
+                                listItem.textContent = `File name: ${file.name}; file size: ${returnFileSize(file.size)}.`;
+                                fileList.appendChild(listItem);
+                            }
+                        }
+                    }
+
+                    function returnFileSize(number) {
+                        if (number < 1e3) {
+                            return `${number} bytes`;
+                        } else if (number >= 1e3 && number < 1e6) {
+                            return `${(number / 1e3).toFixed(1)} KB`;
+                        }
+                        return `${(number / 1e6).toFixed(1)} MB`;
+                    }
+                }
+            </script>
+        </div>
+    </body>
+</html>
