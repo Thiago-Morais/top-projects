@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>UI pseudo-classes</title>
+        <link href="style.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="pseudo-required">
+            <form>
+                <fieldset>
+                    <legend>Feedback form</legend>
+                    <div>
+                        <label for="fname">First name: </label>
+                        <input id="fname" name="fname" type="text" required />
+                    </div>
+                    <div>
+                        <label for="lname">Last name: </label>
+                        <input id="lname" name="lname" type="text" required />
+                    </div>
+                    <div>
+                        <label for="email"> Email address (if you want a response): </label>
+                        <input id="email" name="email" type="email" />
+                    </div>
+                    <div><button>Submit</button></div>
+                </fieldset>
+            </form>
+        </div>
+        <div class="pseudo-generated">
+            <fieldset>
+                <legend>Radio Options</legend>
+                <div>
+                    <label for="radio-op-1">Option 1</label>
+                    <input type="radio" name="radio-op" id="radio-op-1" />
+                </div>
+                <div>
+                    <label for="radio-op-2">Option 2</label>
+                    <input type="radio" name="radio-op" id="radio-op-2" />
+                </div>
+                <div>
+                    <label for="radio-op-3">Option 3</label>
+                    <input type="radio" name="radio-op" id="radio-op-3" />
+                </div>
+            </fieldset>
+        </div>
+        <div class="pseudo-validation">
+            <div>
+                <label for="fname">First name: </label>
+                <input id="fname" name="fname" type="text" required />
+                <span></span>
+            </div>
+        </div>
+    </body>
+</html>
