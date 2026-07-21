@@ -1,0 +1,182 @@
+/* input { */
+/*   appearance: none; */
+/* } */
+
+body {
+    margin-bottom: 10em;
+}
+
+.hard-to-style {
+    /* Remove the 'x' delete button in Safari browser */
+    input[type="search"]:not(:focus, :active)::-webkit-search-cancel-button {
+        display: none;
+    }
+}
+
+.checkbox-styling {
+    /* Checkbox styling */
+    input[type="checkbox"] {
+        appearance: none;
+    }
+
+    input[type="checkbox"] {
+        position: relative;
+        width: 1em;
+        height: 1em;
+        border: 1px solid gray;
+        /* Adjusts the position of the checkboxes on the text baseline */
+        vertical-align: -2px;
+        /* Set here so that Windows' High-Contrast Mode can override */
+        color: green;
+    }
+
+    input[type="checkbox"]::before {
+        content: "✔";
+        position: absolute;
+        font-size: 1.2em;
+        right: -1px;
+        top: -0.3em;
+        visibility: hidden;
+    }
+
+    input[type="checkbox"]:checked::before {
+        /* Use `visibility` instead of `display` to avoid recalculating layout */
+        visibility: visible;
+    }
+
+    input[type="checkbox"]:disabled {
+        border-color: black;
+        background: #dddddd;
+        color: gray;
+    }
+}
+
+.slightly-more-consistent-styling {
+    body {
+        font-family: "Josefin Sans", sans-serif;
+        margin: 20px auto;
+        max-width: 400px;
+    }
+
+    form > div {
+        margin-bottom: 20px;
+    }
+
+    select {
+        appearance: none;
+        width: 100%;
+        height: 100%;
+    }
+
+    .select-wrapper {
+        position: relative;
+    }
+
+    .select-wrapper::after {
+        content: "▼";
+        font-size: 1rem;
+        top: 3px;
+        right: 10px;
+        position: absolute;
+    }
+
+    button,
+    label,
+    input,
+    select,
+    progress,
+    meter {
+        display: block;
+        font-family: inherit;
+        font-size: 100%;
+        margin: 0;
+        box-sizing: border-box;
+        width: 100%;
+        padding: 5px;
+        height: 30px;
+    }
+
+    input[type="text"],
+    input[type="datetime-local"],
+    input[type="color"],
+    select {
+        box-shadow: inset 1px 1px 3px #cccccc;
+        border-radius: 5px;
+    }
+
+    label {
+        margin-bottom: 5px;
+    }
+
+    button {
+        width: 60%;
+        margin: 0 auto;
+    }
+}
+
+.styling-lists {
+    select {
+        appearance: none;
+        background-color: #aaf;
+        width: 100%;
+        height: 100%;
+        font-family: inherit;
+        font-size: 1em;
+        padding: 0.25em;
+    }
+
+    .select-wrapper {
+        position: relative;
+        font-size: 1rem;
+    }
+
+    .select-wrapper::after {
+        content: "▼";
+        top: 50%;
+        transform: translateY(-50%);
+        right: 0.625em;
+        position: absolute;
+    }
+}
+
+.styling-range {
+    input[type="range"] {
+        appearance: none;
+        background: red;
+        height: 2px;
+        padding: 0;
+        outline: 1px solid transparent;
+    }
+}
+
+.styling-color {
+    input[type="color"] {
+        border: 0;
+        padding: 0;
+    }
+}
+
+.styling-file {
+    input[type="file"] {
+        height: 0;
+        padding: 0;
+        opacity: 0;
+    }
+
+    label[for="file-2"] {
+        box-shadow: 1px 1px 3px #cccccc;
+        background: linear-gradient(to bottom, #eeeeee, #cccccc);
+        border: 1px solid darkgrey;
+        border-radius: 5px;
+        text-align: center;
+        line-height: 1.5;
+    }
+
+    label[for="file-2"]:hover {
+        background: linear-gradient(to bottom, white, #dddddd);
+    }
+
+    label[for="file-2"]:active {
+        box-shadow: inset 1px 1px 3px #cccccc;
+    }
+}

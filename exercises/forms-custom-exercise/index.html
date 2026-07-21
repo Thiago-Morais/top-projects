@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Account + Order Intake Form</title>
+        <link href="style.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h1>Account + Order Intake Form</h1>
+
+        <!-- action="https://example.com/api/submit-research-registration" -->
+        <!-- action="/submit-research-registration" -->
+        <form
+            action="https://example.com/api/submit-research-registration"
+            method="post"
+            name="researchRegistration"
+            target="_blank"
+            enctype="multipart/form-data"
+        >
+            <!-- <label for="formProgress"> -->
+            <!--     Form progression: -->
+            <!--     <progress id="formProgress" value="0" max="100">0 %</progress> -->
+            <!-- </label> -->
+            <div><em>Required fields (*)</em></div>
+            <fieldset>
+                <!-- <fieldset hidden> -->
+                <legend>Section 1: Account Setup</legend>
+                <p>
+                    <label for="username">Username (*):</label>
+                    <input
+                        id="username"
+                        type="text"
+                        name="username"
+                        placeholder="e.g., johndoe_research"
+                        required
+                        autocomplete="username"
+                        autofocus
+                        size="30"
+                        minlength="4"
+                        maxlength="24"
+                        pattern="\w*"
+                        title="Use only letters (a-z), numbers (0-9) and underscore (_)"
+                    />
+                    <br />
+                    <span>
+                        <small><em>Use only letters (a-z), numbers (0-9) and underscore (_)</em></small>
+                    </span>
+                </p>
+                <p>
+                    <label for="password">Password (*):</label>
+                    <input
+                        id="password"
+                        type="password"
+                        name="password"
+                        required
+                        minlength="8"
+                        maxlength="64"
+                        placeholder="Min 8 chars, 1 uppercase, 1 number"
+                        autocomplete="new-password"
+                        size="30"
+                    />
+                </p>
+                <p>
+                    <label for="mail">Emails (*):</label>
+                    <input
+                        id="mail"
+                        type="email"
+                        name="mail"
+                        required
+                        multiple
+                        placeholder="you@example.com"
+                        autocomplete="email"
+                        size="35"
+                        title="Separated by commas (,)"
+                    />
+                </p>
+                <p>
+                    <label for="phone">Phone:</label>
+                    <input
+                        id="phone"
+                        type="tel"
+                        name="phone"
+                        placeholder="+1 (555) 000‑0000"
+                        pattern="+?[\s0-9 -\(\)]"
+                        autocomplete="tel"
+                        size="25"
+                    />
+                </p>
+                <p>
+                    <label for="professional-url">Professional Profile URL:</label>
+                    <input
+                        id="professional-url"
+                        type="url"
+                        name="professional-url"
+                        placeholder="https://www.linkedin.com/in/yourprofile"
+                        autocomplete="url"
+                        size="40"
+                    />
+                </p>
+            </fieldset>
+            <fieldset>
+                <!-- <fieldset hidden> -->
+                <legend>Section 2: Personal Information</legend>
+                <p>
+                    <label for="honorific">Honorific:</label>
+                    <input
+                        type="text"
+                        name="honorific"
+                        id="honorific"
+                        list="honorific-list"
+                        placeholder="Select or type your title"
+                        autocomplete="honorific-prefix"
+                    />
+                    <datalist id="honorific-list">
+                        <option value="Dr."></option>
+                        <option value="Mr."></option>
+                        <option value="Mrs."></option>
+                        <option value="Ms."></option>
+                        <option value="Mx."></option>
+                        <option value="Prof."></option>
+                    </datalist>
+                </p>
+                <p>
+                    <label for="participantId">Participant ID:</label>
+                    <input type="text" name="participantId" id="participantId" readonly value="PR‑2026‑784921" />
+                </p>
+                <p>
+                    <label for="badge-color">Name Badge Color:</label>
+                    <input id="badge-color" type="color" name="badge-color" value="#336699" />
+                </p>
+                <p>
+                    <label for="birth-date">Date of Birth:</label>
+                    <input id="birth-date" name="birth-date" type="date" required min="1900-01-01" max="2026-12-31" autocomplete="bday" />
+                </p>
+                <p>
+                    <label for="contact-time">Preferred Contact Time:</label>
+                    <input id="contact-time" type="time" name="contact-time" min="08:00" max="20:00" step="900" />
+                </p>
+                <p>
+                    <label for="onboarding">Onboarding Session Date:</label>
+                    <input
+                        id="onboarding"
+                        type="datetime-local"
+                        name="onboarding"
+                        required
+                        min="2026-07-01T08:00"
+                        max="2026-12-31T18:00"
+                        step="1800"
+                    />
+                </p>
+                <p>
+                    <label for="eligibility-month">Eligibility Start Month:</label>
+                    <input id="eligibility-month" type="month" name="eligibility-month" min="2026-01" max="2027-12" />
+                </p>
+                <p>
+                    <label for="study-week">Preferred Study Start Week:</label>
+                    <input id="study-week" type="week" name="study-week" min="2026-W27" max="2026-W52" />
+                </p>
+                <fieldset>
+                    <legend>Gender:</legend>
+                    <p>
+                        <input type="radio" name="gender" id="gender-male" checked />
+                        <label for="gender-male">Male</label>
+                        <input type="radio" name="gender" id="gender-female" />
+                        <label for="gender-female">Female</label>
+                        <input type="radio" name="gender" id="gender-none" />
+                        <label for="gender-none">Prefer not to say</label>
+                    </p>
+                </fieldset>
+            </fieldset>
+            <!-- <fieldset disabled hidden> -->
+            <fieldset disabled>
+                <!-- <fieldset> -->
+                <legend>Section 3: Health Metrics (currently locked - complete previous sections)</legend>
+                <p>
+                    <label for="weight">Weight (kg):</label>
+                    <input
+                        id="weight"
+                        type="number"
+                        name="weight"
+                        min="30"
+                        max="300"
+                        step=".1"
+                        value="70"
+                        placeholder="Enter weight in kilograms"
+                        title="Enter weight in kilograms"
+                    />
+                </p>
+                <p>
+                    <label for="height">Height (cm):</label>
+                    <input
+                        id="height"
+                        type="number"
+                        min="100"
+                        max="250"
+                        step=".1"
+                        value="170"
+                        placeholder="Enter height in centimiters"
+                        title="Enter height in centimiters"
+                    />
+                </p>
+                <p>
+                    <label for="bmi">Calculated BMI (output only):</label>
+                    <output id="bmi" name="bmi" for="weight height">--</output>
+                </p>
+                <p>
+                    <label for="pain-level">Current Pain Level:</label>
+                    <input id="pain-level" type="range" name="pain-level" min="0" max="10" value="3" list="pain-values" />
+                    <datalist id="pain-values">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </datalist>
+                </p>
+                <p>
+                    <label for="blood-oxygen">Blood Oxygen Saturation Gauge:</label>
+                    <meter id="blood-oxygen" min="70" max="100" low="90" high="96" optimum="98" value="97">97%</meter>
+                </p>
+                <p>
+                    <label for="previous-conditions">Pre-existing Medical Conditions</label>
+                    <select id="previous-conditions" name="previous-conditions" multiple size="6" required>
+                        <optgroup label="Cardiovascular">
+                            <option value="hypertension">Hypertension</option>
+                            <option value="arrhythmia">Arrhythmia</option>
+                            <option value="chf">Congestive Heart Failure</option>
+                        </optgroup>
+                        <optgroup label="Respiratory">
+                            <option value="asthma">Asthma</option>
+                            <option value="copd">COPD</option>
+                            <option value="sleep_apnea">Sleep Apnea</option>
+                        </optgroup>
+                        <optgroup label="Metabolic" disabled>
+                            <option value="diabetes_type1">Type 1 Diabetes</option>
+                            <option value="diabetes_type2">Type 2 Diabetes</option>
+                            <option value="thyroid">Thyroid Disorder</option>
+                        </optgroup>
+                        <optgroup label="Other">
+                            <option value="none" selected>None of the above</option>
+                            <option value="other">Other (specify in notes)</option>
+                        </optgroup>
+                    </select>
+                </p>
+                <p>
+                    <label for="blood-type">Blood type:</label>
+                    <select id="blood-type" name="blood-type">
+                        <option value="" disabled selected>-- Select Blood Type --</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                        <option value="unknown" label="Unknown / Not Tested">Unknown</option>
+                        <!-- For when you get the value from somewhere else and can't change the innertext but still need a specific label -->
+                    </select>
+                </p>
+            </fieldset>
+            <fieldset>
+                <!-- <fieldset hidden> -->
+                <legend>Section 4: Document Uploads</legend>
+                <p>
+                    <label for="photo-id">Government‑Issued Photo ID:</label>
+                    <input id="photo-id" type="file" name="photo-id" required accept="image/*, .pdf" capture="user" />
+                </p>
+                <p>
+                    <label for="medical-records">Medical Records</label>
+                    <input
+                        id="medical-records"
+                        type="file"
+                        name="medical-records"
+                        multiple
+                        accept=".pdf,.doc,.docx,.jpg,.png,.dcm"
+                        capture="environment"
+                    />
+                </p>
+                <p>
+                    <input id="formToken" type="text" name="formToken" value="a8f3c9e2b1d4f6a7c8e9d0b1a2c3d4e5" hidden />
+                </p>
+                <p>
+                    <input id="sourceCampaign" type="text" name="sourceCampaign" value="summer2026_wellness" hidden />
+                </p>
+            </fieldset>
+            <fieldset>
+                <!-- <fieldset hidden> -->
+                <legend>Section 5: Workshop Preferences & Additional Notes</legend>
+                <fieldset>
+                    <legend>Workshop Topics of Interest:</legend>
+                    <ul>
+                        <li>
+                            <input id="topic-nutrition" type="checkbox" name="workshopTopics" value="nutrition" />
+                            <label for="topic-nutrition">Nutrition & Diet</label>
+                        </li>
+                        <li>
+                            <input id="topic-exercise" type="checkbox" name="workshopTopics" value="exercise" />
+                            <label for="topic-exercise">Exercise Physiology</label>
+                        </li>
+                        <li>
+                            <input id="topic-mental" type="checkbox" name="workshopTopics" value="mental_health" />
+                            <label for="topic-mental">Mental Health & Mindfulness</label>
+                        </li>
+                        <li>
+                            <input id="topic-sleep" type="checkbox" name="workshopTopics" value="sleep_science" />
+                            <label for="topic-sleep">Sleep Science</label>
+                        </li>
+                        <li>
+                            <input id="topic-genetics" type="checkbox" name="workshopTopics" value="genetics" />
+                            <label for="topic-genetics">Genetics & Epigenetics</label>
+                        </li>
+                    </ul>
+                </fieldset>
+                <p>
+                    <label for="notes">Additional Notes:</label>
+                    <textarea
+                        id="notes"
+                        name="notes"
+                        cols="60"
+                        rows="3"
+                        placeholder="Please provide any additional information relevant to your participation in this research study..."
+                        minlength="10"
+                        maxlength="2000"
+                    ></textarea>
+                </p>
+            </fieldset>
+            <!-- <fieldset> -->
+            <fieldset hidden>
+                <legend>Section 6: Review & Submit</legend>
+                <button type="submit" name="submitAction" value="final_submit">✅ Submit Registration</button>
+                <button
+                    type="submit"
+                    name="submitAction"
+                    value="save_draft"
+                    formaction="http://example.com/api/save-draft"
+                    formenctype="application/x-www-form-urlencoded"
+                    formnovalidate
+                    formtarget="_self"
+                >
+                    💾 Save as Draft (no validation)
+                </button>
+                <button type="reset" name="resetAction" value="reset_form">🔄 Reset All Fields</button>
+                <button type="button" name="helpButton" value="show_help">❓ Toggle Help</button>
+                <input
+                    id="submit-image"
+                    type="image"
+                    width="180"
+                    height="44"
+                    src="image.jpg"
+                    alt="📋 Submit with Image"
+                    name="imageSubmit"
+                    value="graphical_submit"
+                    formaction="http://example.com/api/image-submit"
+                />
+                <button
+                    type="submit"
+                    formaction="http://example.com/api/quick-submit"
+                    formmethod="get"
+                    formenctype="text/plain"
+                    formnovalidate
+                    formtarget="_self"
+                >
+                    Quick Submit (Alternate Endpoint)
+                </button>
+                <button type="button" name="plainInputButton">input[type=button]</button>
+            </fieldset>
+        </form>
+    </body>
+</html>
